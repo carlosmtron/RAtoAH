@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadObservatories();
+
+    // Añadir evento para mostrar/ocultar los campos de fecha y hora local
+    const changeDateTimeCheckbox = document.getElementById('changeDateTime');
+    const dateTimeFields = document.getElementById('dateTimeFields');
+    
+    changeDateTimeCheckbox.addEventListener('change', function () {
+        if (this.checked) {
+            dateTimeFields.style.display = 'block';
+        } else {
+            dateTimeFields.style.display = 'none';
+        }
+    });
 });
 
 function loadObservatories() {

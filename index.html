@@ -45,6 +45,22 @@
                 <label for="timezone">Zona Horaria (UTC):</label>
                 <input type="number" class="form-control" id="timezone" name="timezone" step="0.5" required>
             </div>
+
+            <!-- Casilla de verificación para cambiar fecha y hora local -->
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="changeDateTime" name="changeDateTime">
+                <label class="form-check-label" for="changeDateTime">Cambiar Fecha y Hora Local</label>
+            </div>
+
+            <!-- Campos para ingresar fecha y hora local -->
+            <div id="dateTimeFields" class="form-group" style="display: none;">
+                <label for="localDate">Fecha Local:</label>
+                <input type="date" class="form-control" id="localDate" name="localDate">
+
+                <label for="localTime" class="mt-2">Hora Local:</label>
+                <input type="time" class="form-control" id="localTime" name="localTime">
+            </div>
+
             <button type="button" class="btn btn-primary btn-block" onclick="convert()">Convertir</button>
         </form>
         <p id="result" class="mt-3 text-center"></p>
