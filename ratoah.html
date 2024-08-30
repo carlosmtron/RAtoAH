@@ -11,20 +11,27 @@
     <div class="container mt-5">
         <h1 class="text-center">Conversor de Ascensión Recta a Ángulo Horario</h1>
         <form id="conversionForm" class="mt-4">
+            <!-- Campo opcional para seleccionar observatorio -->
             <div class="form-group">
-    <label for="ra">Ascensión Recta (RA):</label>
-    <div class="form-row">
-        <div class="col">
-            <input type="number" class="form-control" id="raHours" name="raHours" placeholder="Horas" min="0" max="23" required>
-        </div>
-        <div class="col">
-            <input type="number" class="form-control" id="raMinutes" name="raMinutes" placeholder="Minutos" min="0" max="59" required>
-        </div>
-        <div class="col">
-            <input type="number" class="form-control" id="raSeconds" name="raSeconds" placeholder="Segundos" min="0" max="59" required>
-        </div>
-    </div>
-</div>
+                <label for="observatory">Seleccionar Observatorio (opcional):</label>
+                <select class="form-control" id="observatory" name="observatory">
+                    <!-- Opciones se cargarán aquí desde el CSV -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ra">Ascensión Recta (RA):</label>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="number" class="form-control" id="raHours" name="raHours" placeholder="Horas" min="0" max="23" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="raMinutes" name="raMinutes" placeholder="Minutos" min="0" max="59" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="raSeconds" name="raSeconds" placeholder="Segundos" min="0" max="59" required>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label for="longitude">Longitud (°):</label>
@@ -50,6 +57,7 @@
     
     <!-- Enlazar archivo JavaScript -->
     <script src="calculo_ah.js"></script>
+    <script src="load_observatories.js"></script> <!-- Script para cargar observatorios -->
 </body>
 </html>
 
