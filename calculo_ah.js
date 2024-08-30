@@ -27,7 +27,7 @@ function convert() {
         lst = calculateLST(now, longitude, timezone);
     }
 
-    // Calcular el ángulo horario (AH)
+    // Calcular el ángulo horario (HA)
     let ha = lst - raDecimalHours;
 
     // Ajustar el ángulo horario para que esté en el rango [0, 24) horas
@@ -55,19 +55,17 @@ function calculateLST(dateTime, longitude, timezone) {
 
     // Calcular la hora sideral en Greenwich (GMST) en grados
     let gmst = 280.46061837 + 360.98564736629 * d;
+    gmst = gmst % 360; // Asegurarse de que esté en el rango [0, 360) grados
 
     // Convertir la longitud geográfica a grados
     const lonInDegrees = longitude;
 
     // Calcular la hora sideral local (LST) en grados
     let lstInDegrees = gmst + lonInDegrees;
+    lstInDegrees = lstInDegrees % 360; // Asegurarse de que esté en el rango [0, 360) grados
 
     // Convertir LST a horas (0-24h)
     let lstInHours = lstInDegrees / 15.0;
-
-    // Ajustar para que esté en el rango [0, 24) horas
-    if (lstInHours < 0) lstInHours += 24;
-    if (lstInHours >= 24) lstInHours -= 24;
 
     return lstInHours;
 }
